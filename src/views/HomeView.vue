@@ -1,7 +1,7 @@
 <template>
   <h2>All Todos</h2>
   <div v-for="todo in todos" :key="todo.id">
-    <the-todo :todo="todo"></the-todo>
+    <the-todo :todo="todo" @deleteTodo="deleteTodo"></the-todo>
   </div>
 </template>
 
@@ -16,13 +16,23 @@ export default {
   },
   data() {
     return {
+      baseURL: 'http://localhost:3000',
       todos: [],
     };
   },
+  methods: {
+    async deleteTodo(id) {
+      try {
+        await axios.delete(`${this.baseURL}/todos/${id}`);
+        this.todos = this.todos.filter((todo) => todo.id !== id);
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+  },
   async mounted() {
     try {
-      const todos = await axios.get('http://localhost:3000/todos');
-      this.todos = todos.data;
+      this.todos = (await axios.get(`${this.baseURL}/todos`)).data;
     } catch (error) {
       console.log(error.message);
     }
