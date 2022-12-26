@@ -1,7 +1,7 @@
 <template>
   <h2>All Todos</h2>
   <div v-for="todo in todos" :key="todo.id">
-    <the-todo :todo="todo" @deleteTodo="deleteTodo"></the-todo>
+    <the-todo :todo="todo" @deleteTodo="deleteTodo" @toggle-status="toggleStatus"></the-todo>
   </div>
 </template>
 
@@ -25,6 +25,15 @@ export default {
       try {
         await axios.delete(`${this.baseURL}/todos/${id}`);
         this.todos = this.todos.filter((todo) => todo.id !== id);
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+    async toggleStatus(id) {
+      try {
+        const todo = this.todos.find((t) => t.id === id);
+        await axios.patch(`${this.baseURL}/todos/${id}`, { status: !todo.status });
+        todo.status = !todo.status;
       } catch (error) {
         console.log(error.message);
       }

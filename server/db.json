@@ -1,40 +1,28 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "First Task",
-      "description": "This is the description of first task",
-      "status": "complete"
-    },
-    {
-      "id": 2,
-      "title": "First Task",
-      "description": "This is the description of first task",
-      "status": "complete"
-    },
-    {
-      "id": 4,
-      "title": "First Task",
-      "description": "This is the description of first task",
-      "status": "complete"
-    },
-    {
-      "id": 5,
-      "title": "First Task",
-      "description": "This is the description of first task",
-      "status": "complete"
-    },
-    {
-      "title": "tets todo",
-      "description": "ghgh",
+      "title": "First Todo",
+      "description": "This is the first todo",
       "status": false,
-      "id": 6
+      "id": 1
     },
     {
-      "title": "test2",
-      "description": "ghghg tytyty",
+      "title": "Second Todo",
+      "description": "This is the next todo",
+      "status": true,
+      "id": 2
+    },
+    {
+      "title": "Third todo",
+      "description": "This is the next of next todo",
       "status": false,
-      "id": 7
+      "id": 3
+    },
+    {
+      "title": "Fourth todo",
+      "description": "This is the fourth todo",
+      "status": false,
+      "id": 4
     }
   ]
 }
