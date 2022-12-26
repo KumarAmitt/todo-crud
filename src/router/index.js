@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AddTodo from '@/views/AddTodo.vue';
 import EditTodo from '@/views/EditTodo.vue';
 import HomeView from '@/views/HomeView.vue';
+import NotFound from '@/components/NotFound.vue';
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     name: 'editTodo',
     component: EditTodo,
     props: true,
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'notFound',
+    component: NotFound,
   },
 ];
 
